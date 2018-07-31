@@ -70,12 +70,14 @@ class Gamer():
         list_numbers = [x for x in range(1, 91)]
         for i in range(3):
             position = random.sample([x for x in range(0, 9)], 5)
+            value = random.sample(list_numbers, 5)
+            value.sort()
             column = []
             for j in range(9):
                 if j in position:
-                    val = random.sample(list_numbers, 1)[0]
-                    column.append(val)
-                    list_numbers.remove(val)
+                    list_numbers.remove(value[0])
+                    column.append(value.pop(0))
+
                 else:
                     column.append('*')
             card_list += column
